@@ -1,6 +1,7 @@
-/*
- *  Brought to you by Yago Estévez. https://twitter.com/yagoestevez
- */
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//                        by Yago Estévez. https://twitter.com/yagoestevez                        //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Source+Sans+Pro:400,400i,500,600');
 
@@ -13,12 +14,7 @@ $key-color            : #e7f403;
   padding             : 0;
   margin              : 0;
 }
- 
-html, body {
-  width               : 100%;
-  height              : 100%; 
-}
- 
+
 body {
   background          : $background-color;
   color               : rgba( $light-color, .7 );
@@ -32,7 +28,7 @@ body {
 h2 {
   color               : $light-color;
   font-size           : 2rem;
-  margin-top          : 1rem;
+  margin-top          : 3rem;
   text-align          : center;
   em {
     color             : $key-color;
@@ -42,6 +38,7 @@ h2 {
 
 #chart {
   width               : 900px;
+  position            : relative;
 
   .domain, .tick line {
     stroke            : $light-color;
@@ -73,11 +70,15 @@ h2 {
 
 footer {
   text-align          : center;
+  width               : 50%;
   p {
     margin            : 1rem 0;
   }
   hr {
-    color             : rgba( $background-color, .6 );
+    margin-top        :1rem;
+    border            : 0;
+    height            : 0;
+    border-bottom     : 1px solid rgba( $light-color, .3 );
   }
 }
 

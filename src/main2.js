@@ -68,11 +68,10 @@ class ChartBuilder {
                  || month === '07' && `Q3/${data[0].substring(0,4)}`
                  || `Q4/${data[0].substring(0,4)}`;
       return { 
-        year      : year,
-        date      : new Date( year, month ),
-        text      : text,
-        dateString: data[ 0 ],
-        value     : +data[ 1 ]
+        year : year,
+        date : new Date( year, month ),
+        text : text,
+        value: +data[ 1 ]
       }
     } );
   }
@@ -142,9 +141,9 @@ class ChartBuilder {
       .attr( 'x'        , d => this.x( d.date ) )
       .attr( 'height'   , 0 )
       .attr( 'width'    , this.innerWidth / this.data.length +1 )
+      .attr( 'data-date', d => this.x(d.date) )
+      .attr( 'data-gdp' , d => this.y(d.value) )
       // .attr( 'width' , this.x.bandwidth      )
-      .attr( 'data-date', d => d.dateString )
-      .attr( 'data-gdp' , d => d.value )
     this.handleEvents( );
     return this;
   }
@@ -162,7 +161,8 @@ class ChartBuilder {
 
   // Creates the tooltip to be shown when hover each bar.
   setTooltip ( ) {
-    this.tooltip.attr( 'id', 'tooltip' ).attr( 'transform', 'translate( 100, 80)' );
+    this.tooltip.attr( 'id', 'tooltip' )
+      .attr( 'transform', 'translate( 100, 80)' )
     this.tooltipText.attr( 'id', 'tooltip-text' );
     this.tooltipIcon.attr( 'id', 'tooltip-icon' )
       .attr(
@@ -182,14 +182,16 @@ class ChartBuilder {
   handleEvents ( ) {
     this.singleBar.on( 'mouseover', ( d,i ) => {
       this.tooltip
-        .attr( 'data-date', this.data[i].dateString )
+        .attr( 'data-date', this.data[i].date )
         .transition( )
         .duration( 100 )
         .style( 'opacity', 1 );
       this.tooltipText.html( `$${this.data[i].value} billions on ${this.data[i].text}` )
     } )
     this.singleBar.on( 'mouseout', d => {
-      this.tooltip.transition( )
+      this.tooltip
+        .attr( 'data-date', '' )
+        .transition( )
         .duration( 500 )
         .style( 'opacity', 0 );
     } );
