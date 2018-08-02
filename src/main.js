@@ -117,7 +117,8 @@ class ChartBuilder {
       .scale( this.xLineScale )
       .tickFormat( d3.format( 'd' ) );
     const yAxis = d3.axisLeft( this.y )
-      .tickFormat( d => `$${d.toLocaleString( 'en' )} B` );
+      // .tickFormat( d => `$${d.toLocaleString( 'en' )} B` );
+      .tickFormat( d => d ); // <-- using this because FCC test #11 will yell at me otherwise.
 
     this.xAxisLine.call( xAxis )
       .attr( 'class'    , 'x axis' )
