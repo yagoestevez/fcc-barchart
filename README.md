@@ -1,6 +1,7 @@
 # Visualiza Data with a Bar Chart
 #### Project made for the "Data Visualization" module in freeCodeCamp 
----
+
+![alt text](./Screenshot.png "Screenshot")
 
 This project was made for the 4th module in freeCodeCamp which requires the camper to code a D3 Bar Chart representing the data taken from [this JSON document](https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json).
 
